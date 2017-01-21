@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:id="@+id/imageView"
+        android:src="@mipmap/circle_ok"
+        android:minHeight="48dp"
+        android:minWidth="48dp"
+        android:clickable="true"
+        android:layout_gravity="center_vertical|left" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radipGroup"
+        android:divider="#cccccc"
+        android:layout_margin="12dp">
+
+        <RadioButton
+            android:id="@+id/rd_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="آزمون محاسبه   "
+            android:paddingLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/rd_2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rd_1"
+            android:text="آزمون حفظ لغت   "
+            android:paddingLeft="10dp"
+            android:layout_marginTop="15dp" />
+
+        <RadioButton
+            android:id="@+id/rd_3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rd_2"
+            android:text="آزمون استروپ   "
+            android:paddingLeft="10dp"
+            android:layout_marginTop="15dp" />
+
+    </RadioGroup>
+
+</LinearLayout>
