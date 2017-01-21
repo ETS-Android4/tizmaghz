@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.app.sherafat.ali.tizmaghz.main.MainActivity;
+
 public class SplashActivity extends Activity {
 
     @Override
@@ -23,7 +25,7 @@ public class SplashActivity extends Activity {
         G.HANDLER.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, Main.class);
+                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 SplashActivity.this.startActivity(intent);
                 SplashActivity.this.finish();
             }

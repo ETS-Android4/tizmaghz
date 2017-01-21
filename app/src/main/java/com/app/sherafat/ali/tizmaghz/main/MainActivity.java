@@ -1,21 +1,18 @@
-package com.app.sherafat.ali.tizmaghz;
+package com.app.sherafat.ali.tizmaghz.main;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AlertDialog;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Toast;
 
-public class Main extends Enhanced {
+import com.app.sherafat.ali.tizmaghz.CalcActivity;
+import com.app.sherafat.ali.tizmaghz.R;
+import com.app.sherafat.ali.tizmaghz.app.base.BaseActivity;
+
+public class MainActivity extends BaseActivity {
 
     private  static  long  back_pressed = 0;
     int day;
@@ -25,7 +22,7 @@ public class Main extends Enhanced {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+/*
 
         day=G.preferences.getInt("DAY",0);
 
@@ -52,7 +49,6 @@ public class Main extends Enhanced {
             builder.show();
         }
 
-
 // slide start
         listView = (ListView) findViewById(R.id.lstMenuItems);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -68,12 +64,13 @@ public class Main extends Enhanced {
         getSupportActionBar().setHomeButtonEnabled(true);
 //slide end
 
+*/
 
         ImageView imgStart = (ImageView) findViewById(R.id.imgStart);
         imgStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Main.this,CalcActivity.class));
+                startActivity(new Intent(MainActivity.this,CalcActivity.class));
             }
         });
 
@@ -97,7 +94,7 @@ public class Main extends Enhanced {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            drawerLayout.openDrawer(Gravity.LEFT);
+           // drawerLayout.openDrawer(Gravity.LEFT);
             return true;
         }
 
@@ -107,7 +104,7 @@ public class Main extends Enhanced {
 
     @Override
     public void onBackPressed() {
-
+/*
         if (!(G.preferences.getBoolean("STAR",false)) & day >2){
             final AlertDialog.Builder builder =
                     new AlertDialog.Builder(Main.this, R.style.AppCompatAlertDialogStyle);
@@ -140,25 +137,26 @@ public class Main extends Enhanced {
             builder.setCancelable(true);
             builder.show();
         }
+        */
         if (back_pressed + 2000 > System.currentTimeMillis()) {
             super.onBackPressed();
             AppExit();
         }
         else {
             if (day!=3) {
-                Toast.makeText(context, "برای خروج کلید بازگشت را مجددا فشار دهید", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "برای خروج کلید بازگشت را مجددا فشار دهید", Toast.LENGTH_SHORT).show();
             }
         back_pressed =  System.currentTimeMillis();
         }
     }
 
     public void AppExit(){
-        Main.this.finish();
+        MainActivity.this.finish();
 
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        Main.this.startActivity(intent);
+        MainActivity.this.startActivity(intent);
 
         System.exit(0);
     }
